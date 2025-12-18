@@ -1,0 +1,8 @@
+
+langgraph
+langchain
+dashscope  # 千问API
+pydantic
+chromadb  # 向量数据库
+sentence-transformers  # 嵌入模型
+python-dotenv
