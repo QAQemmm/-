@@ -1,6 +1,8 @@
 # -
 深度赋智笔试项目-林
+
 📦 快速开始
+
 安装依赖
 bash
 pip install -r requirements.txt
@@ -17,20 +19,15 @@ MODEL_NAME=qwen-max
 TEMPERATURE=0.7
 运行示例
 python
-# 启动交互式对话
 python rag_agent.py
-
-# 或运行示例脚本
 python example_usage.py
 📚 使用方式
 1. 添加文档到知识库
 python
 from rag_agent import RAGAgent
 
-# 创建 Agent
 agent = RAGAgent()
 
-# 添加文档
 documents = [
     "LangGraph 是一个用于构建多步骤、有状态 AI 应用的框架。",
     "RAG（检索增强生成）结合了检索系统和生成模型。"
@@ -60,24 +57,7 @@ load_custom_documents(agent, "./my_documents")
 
 输入 quit 或 退出：结束对话
 
-🏗 项目结构
-text
-rag-agent/
-├── rag_agent.py          # 主程序，包含 RAGAgent 类
-├── config.py             # 配置文件
-├── document_loader.py    # 文档加载器
-├── example_usage.py      # 使用示例
-├── requirements.txt      # 依赖包列表
-├── .env.example          # 环境变量示例
-├── chroma_db/           # 向量数据库存储
-└── documents/           # 文档存储目录（可选）
-🔧 核心组件
-工作流图
-text
-用户输入 → 判断是否需要检索 → [是] → 文档检索 → 生成响应
-                 ↓
-                [否] → 直接生成响应
-Agent 状态
+
 python
 class AgentState:
     messages: List[Dict]      # 对话历史
@@ -86,13 +66,3 @@ class AgentState:
     retrieved_docs: List     # 检索到的文档
     context: str            # 上下文信息
     response: str           # AI 响应
-⚙️ 配置选项
-在 config.py 中可调整：
-
-模型参数（温度、最大 tokens）
-
-RAG 参数（分块大小、检索数量）
-
-嵌入模型选择
-
-存储路径
